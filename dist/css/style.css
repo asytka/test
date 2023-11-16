@@ -1,0 +1,9 @@
+p {
+    background-color: red;
+    font-size: 25px;
+    font-family: "Times New Roman";
+}
+body {
+    background-color: black;
+    transition: ease-in-out;
+}
