@@ -2,49 +2,129 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="dist/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>ShapeRex</title>
 </head>
 <body>
-<div class="top-nav">
-    <div class="searchbar"><i class="bi bi-search"></i></div>
-    <div class="notifications"><i class="bi bi-bell"><p>24</p></i></div>
-    <div class="messages"><i class="bi bi-envelope"><p>5</p></i></div>
-    <div class="profile-picture"><i class="bi bi-person-circle"></i><i class="bi bi-chevron-down"></i></div>
-</div>
-<div class="right-nav">
-    <div class="logo"><i class="bi bi-bar-chart-fill"></i>ShapeRex</div>
-    <div class="right-nav-menu">
-        <div class="dashboard"><i class="bi bi-grid"></i>Dashboard</div>
-        <div class="my-task"><i class="bi bi-calendar-minus"></i>My Task</div>
-        <div class="my-project"><i class="bi bi-folder2-open"></i>My Project</div>
-        <div class="my-wallet"><i class="bi bi-wallet2"></i>My Wallet</div>
-        <div class="history-data"><i class="bi bi-graph-up"></i>History Data</div>
-        <div class="invoice"><i class="bi bi-cash-stack"></i>Invoice</div>
-        <div class="helps"><i class="bi bi-question-lg"></i>Helps</div>
-        <div class="footer"><i class="bi bi-box-arrow-left"></i>Logout</div>
+<div class="flex-wrapper">
+    <div class="top-nav">
+        <div class="menu-button" id="menu-button"><i class="bi bi-list"></i></div>
+        <div class="searchbar"><i class="bi bi-search"></i></div>
+        <div class="notifications"><i class="bi bi-bell"><p></p></i></div>
+        <div class="messages"><i class="bi bi-envelope"><p></p></i></div>
+        <div class="profile-picture"><i class="bi bi-person-circle"></i><i class="bi bi-chevron-down"></i></div>
     </div>
-</div>
-<div class="main">
-    <div class="wrapper-credit">
-        <div class="credit-name">My Credit Card</div>
-        <div class="credit-card">
-            <div class="credit-card-visa">VISA</div>
-            <div class="credit-card-number">4441 1144 5682 4589</div>
-            <div class="credit-card-date">12/05</div>
-            <div class="credit-card-name">SUBASH</div>
+    <div class="right-nav" id="right-nav">
+        <div class="logo"><i class="bi bi-bar-chart-fill"></i>ShapeRex</div>
+        <div class="right-nav-menu">
+            <div class="dashboard" id="dashboard"><i class="bi bi-grid"></i>Dashboard</div>
+            <div class="my-task"><i class="bi bi-calendar-minus"></i>My Task</div>
+            <div class="my-project"><i class="bi bi-folder2-open"></i>My Project</div>
+            <div class="my-wallet"><i class="bi bi-wallet2"></i>My Wallet</div>
+            <div class="history-data"><i class="bi bi-graph-up"></i>History Data</div>
+            <div class="invoice"><i class="bi bi-cash-stack"></i>Invoice</div>
+            <div class="helps"><i class="bi bi-question-lg"></i>Helps</div>
+            <div class="footer"><i class="bi bi-box-arrow-left"></i>Logout</div>
         </div>
-        <div class="credit-info"></div>
     </div>
-    <div class="wrapper-statistics"></div>
-    <div class="wrapper-earnings"></div>
-    <div class="wrapper-monthly-sales"></div>
-    <div class="wrapper-yearly-sales"></div>
-    <div class="wrapper-calendar"></div>
+    <div class="main">
+        <div class = "credit-card-block">
+            <div class="credit-card-name">My Credit Card</div>
+            <div class="credit-card">
+                <div class="credit-card-visa"><p>VISA</p></div>
+                <div class="credit-card-number"><p>2450 4432 3231 9821</p></div>
+                <div class="credit-card-valid"><p>12/05</p><p>SUBASH</p></div>
+            </div>
+            <hr>
+            <div class="credit-card-info">
+                <div class="credit-card-info-d1">
+                    <p>Card number: </p>
+                    <p>Account Name: </p>
+                    <p>Card status: </p>
+                </div>
+                <div class="credit-card-info-d2">
+                    <p>450 4432 3231 9821</p>
+                    <p>Subash Chandra</p>
+                    <p>Active</p>
+                </div>
+            </div>
+        </div>
+        <div class = "statistics-block">
+            <div class="statistics-block-header">
+                <div>Statistics</div>
+                <div class="statistics-block-header-flex">
+                    <div>2018<i class="bi bi-chevron-down"></i></div>
+                    <div>Month<i class="bi bi-chevron-down"></i></div>
+                </div>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>
+        <div class = "earnings-block">
+            <div class="earnings-block-name">
+                <p>Earnings in Month</p>
+            </div>
+            <div class="earnings-block-graph">
+                <canvas id="doughnutChart"></canvas>
+                <p class="text">75%</p>
+            </div>
+            <hr>
+            <div class="earnings-block-info">
+                <div class="earnings-block-info-d1">
+                    <p>Deposit:</p>
+                    <p>Expose:</p>
+                    <p>Payable:</p>
+                </div>
+                <div class="earnings-block-info-d2">
+                    <p>$20 541 875 342</p>
+                    <p>$54 875 342</p>
+                    <p>$515 875 342</p>
+                </div>
+            </div>
+        </div>
+        <div class = "calendar-block">
+            <div class="calendar-block-mon">
+                <div class="calendar-block-mon-d1">Monthly Sale</div>
+                <div class="calendar-block-mon-flex-wrapper">
+                    <div>
+                        <div class="calendar-block-mon-d2">20 541</div>
+                        <div class="calendar-block-mon-d3">Today income</div>
+                    </div>
+                    <div class="calendar-block-mon-block"><i class="bi bi-arrow-down"></i></div>
+                </div>
+                <div>
+                    <hr>
+                    <div class="calendar-block-mon-after-hr"></div>
+                </div>
+            </div>
+            <div class="calendar-block-yea">
+                <div class="calendar-block-yea-d1">Yearly Sale</div>
+                <div class="calendar-block-yea-flex-wrapper">
+                    <div>
+                        <div class="calendar-block-yea-d2">20 54 125</div>
+                        <div class="calendar-block-yea-d3">Today income</div>
+                    </div>
+                    <div class="calendar-block-yea-block"><i class="bi bi-arrow-up"></i></div>
+                </div>
+                <div>
+                    <hr>
+                    <div class="calendar-block-yea-after-hr"></div>
+                </div>
+
+            </div>
+
+            <div class="calendar-block-cal"></div>
+        </div>
+    </div>
+
 </div>
+
 </body>
+<script src="js/script.js"></script>
 </html>

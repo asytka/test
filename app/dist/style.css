@@ -8,11 +8,20 @@ body {
 }
 
 .right-nav {
+  display: flex;
+  flex-direction: column;
   width: 350px;
   height: 100vh;
-  background-color: #f2eded;
+  background-color: #ffffff;
 }
 
+@media (max-width: 1400px) {
+  .right-nav {
+    position: absolute;
+    transform: translateX(-350px);
+    transition: all 0.5s;
+  }
+}
 .logo {
   padding-top: 30px;
   font-size: 30px;
@@ -36,7 +45,7 @@ body {
   font-size: 20px;
   font-family: "DejaVu Sans";
   margin-bottom: 40px;
-  color: #838383;
+  color: #4a4e50;
 }
 
 .right-nav-menu div {
@@ -77,6 +86,10 @@ body {
   border-bottom: 2px solid #f2eded;
 }
 
+.menu-button {
+  z-index: 5;
+}
+
 .top-nav div {
   display: flex;
   flex-direction: row;
@@ -105,135 +118,360 @@ body {
   padding-left: 20px;
 }
 
+.top-nav .menu-button {
+  justify-content: flex-start;
+  flex-basis: 100%;
+  font-size: 30px;
+}
+
+.flex-wrapper {
+  display: flex;
+}
+
 .main {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  z-index: -2;
-  background-color: #eeeee4;
-}
-
-.wrapper-credit {
-  border-radius: 4px;
+  display: flex;
+  flex-grow: 1;
   position: relative;
-  margin-top: 120px;
-  margin-left: 370px;
-  height: 400px;
-  width: 600px;
-  background-color: white;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  top: 100px;
+  width: 80%;
+  height: calc(100vh - 100px);
+  z-index: -2;
+  background-color: #f7f7f7;
 }
 
-.credit-name {
-  font-size: 22px;
+.main div {
+  position: relative;
+}
+
+.credit-card-block {
+  position: relative;
+  background-color: #ffffff;
+  width: 30%;
+  height: 45%;
+}
+
+.statistics-block {
+  background-color: #ffffff;
+  width: 65%;
+  height: 45%;
+}
+
+.earnings-block {
+  background-color: #ffffff;
+  width: 30%;
+  height: 45%;
+}
+
+.calendar-block {
+  background-color: #ffffff;
+  width: 65%;
+  height: 45%;
+}
+
+.credit-card-name {
+  font-size: 24px;
   font-family: "DejaVu Sans";
-  padding-left: 35px;
-  padding-top: 40px;
-  color: #686868;
+  text-align: center;
+  padding: 15px 15px;
 }
 
 .credit-card {
   border-radius: 5px;
+  filter: drop-shadow(0 0 60px rgba(31, 32, 41, 0.4));
   position: absolute;
-  height: 170px;
-  width: 320px;
-  margin-left: 30px;
-  margin-top: 40px;
-  background: rgb(162, 156, 255);
-  background: linear-gradient(90deg, rgb(162, 156, 255) 0%, rgb(103, 0, 168) 100%);
-}
-
-.credit-card:hover {
-  background: linear-gradient(45deg, rgb(200, 156, 1) 0%, rgb(103, 0, 168) 100%);
-  transition: all 100ms ease-in-out;
-  cursor: pointer;
+  padding: 10px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 250px;
+  height: 150px;
+  background: rgb(162, 156, 255) !important;
+  background: linear-gradient(135deg, rgb(187, 183, 253) 0%, rgb(114, 6, 182) 100%) !important;
 }
 
 .credit-card-visa {
-  text-align: center;
-  font-size: 12px;
-  font-weight: bold;
-  font-style: italic;
-  border-radius: 4px;
-  padding: 3px;
-  margin: 15px;
   width: 50px;
+  height: 25px;
   background-color: white;
 }
 
+.credit-card-visa p {
+  padding-top: 2px;
+  position: absolute;
+  left: 7px;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: "DejaVu Sans";
+  font-style: italic;
+}
+
 .credit-card-number {
-  font-style: normal;
-  letter-spacing: 2px;
-  color: white;
-  padding-top: 10px;
+  padding-top: 15px;
   text-align: center;
+  font-size: 18px;
+  letter-spacing: 2px;
+  line-height: 40px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.credit-card-valid p {
+  display: inline-block;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.credit-card-valid p:first-child {
+  margin-right: 40px;
+  margin-left: 12px;
+}
+
+.credit-card-valid p:last-child {
+  margin-left: 40px;
+}
+
+.credit-card-info {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: space-around;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: black;
+  font-weight: 500;
+}
+
+.credit-card-block hr {
+  position: relative;
+  width: 80%;
+  border-top: 1px solid #595959;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.credit-card-info-d1 {
+  display: flex;
+  flex-direction: column;
+  color: #595959;
+}
+
+.earnings-block-name p {
+  text-align: center;
+  font-size: 24px;
+  font-family: "DejaVu Sans";
+  padding: 15px 0 0 15px;
+}
+
+.earnings-block-graph {
+  width: 150px;
+  height: 150px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.earnings-block-graph .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 20px;
   font-weight: bold;
 }
 
-.credit-card-date {
-  display: inline-block;
-  font-size: 18px;
-  color: white;
-  font-weight: bold;
-  padding-left: 40px;
-  width: 30px;
+.earnings-block-info {
+  display: flex;
+  justify-content: space-around;
 }
 
-.credit-card-name {
-  display: inline-block;
-  margin-left: 170px;
-  color: white;
-  font-weight: bold;
+.earnings-block-info-d1 {
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  display: inherit;
+  flex-direction: column;
+  color: #595959;
+}
+
+.earnings-block-info-d2 {
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: black;
+  font-weight: 500;
+  display: inherit;
+  flex-direction: column;
+}
+
+.earnings-block hr {
+  position: relative;
+  width: 80%;
+  border-top: 1px solid #595959;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.statistics-block-header {
+  font-size: 22px;
+  font-family: "DejaVu Sans";
   padding-top: 20px;
+  padding-left: 25px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.wrapper-statistics {
-  border-radius: 4px;
-  position: relative;
-  margin-top: -400px;
-  margin-left: 1000px;
-  height: 400px;
-  width: 850px;
-  background-color: white;
+.statistics-block-header-flex {
+  display: flex;
+}
+.statistics-block-header-flex div {
+  padding-left: 100px;
+  font-weight: 400;
+}
+.statistics-block-header-flex i {
+  padding-left: 10px;
 }
 
-.wrapper-earnings {
-  border-radius: 4px;
-  position: relative;
-  margin-top: 30px;
-  margin-left: 370px;
-  height: 390px;
-  width: 600px;
-  background-color: white;
+.statistics-block-header-flex:last-child {
+  padding-right: 50px;
 }
 
-.wrapper-monthly-sales {
-  border-radius: 4px;
+.chart-wrapper {
   position: relative;
-  margin-top: -390px;
-  margin-left: 1000px;
-  height: 180px;
-  width: 410px;
-  background-color: white;
+  width: 95%;
+  height: 75%;
+  transform: translate(2.5%);
 }
 
-.wrapper-yearly-sales {
-  border-radius: 4px;
+.calendar-block-mon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
-  margin-top: 30px;
-  margin-left: 1000px;
-  height: 180px;
-  width: 410px;
-  background-color: white;
+  width: 40%;
+  height: 50%;
 }
 
-.wrapper-calendar {
-  border-radius: 4px;
+.calendar-block-mon-flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar-block-mon hr {
+  position: absolute;
+  bottom: 0;
+  width: 65%;
+  border-top: 4px solid #ffb35e;
+  margin: 0;
+}
+
+.calendar-block-mon-after-hr {
+  position: absolute;
+  left: 65%;
+  width: 10px;
+  height: 10px;
+  background-color: #ffb35e;
+  border-radius: 50%;
+}
+
+.calendar-block-mon-block {
+  width: 100px;
+  height: 75px;
+  background-color: #ffb35e;
+  text-align: center;
+}
+.calendar-block-mon-block i {
+  font-size: 50px;
   position: relative;
-  margin-top: -390px;
-  margin-left: 1440px;
-  height: 390px;
-  width: 410px;
-  background-color: white;
+  color: white;
+}
+
+.calendar-block-mon-d1 {
+  font-size: 24px;
+  font-family: "DejaVu Sans";
+  padding: 15px 15px;
+}
+
+.calendar-block-mon-d2 {
+  font-size: 35px;
+  font-family: "DejaVu Sans";
+  padding-left: 15px;
+}
+
+.calendar-block-mon-d3 {
+  padding-left: 15px;
+  font-size: 15px;
+  color: #8d99a3;
+  font-weight: 500;
+  font-family: "Poppins";
+}
+
+.calendar-block-yea {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  position: relative;
+  width: 40%;
+  height: 50%;
+}
+
+.calendar-block-yea-flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar-block-yea div hr {
+  position: absolute;
+  bottom: 0;
+  width: 65%;
+  border-top: 4px solid #14ba47;
+  margin: 0;
+}
+
+.calendar-block-yea-after-hr {
+  position: absolute;
+  bottom: 0;
+  left: 65%;
+  width: 10px;
+  height: 10px;
+  background-color: #14ba47;
+  border-radius: 50%;
+}
+
+.calendar-block-yea-block {
+  width: 100px;
+  height: 75px;
+  background-color: #14ba47;
+  text-align: center;
+}
+.calendar-block-yea-block i {
+  font-size: 50px;
+  position: relative;
+  color: white;
+}
+
+.calendar-block-yea-d1 {
+  font-size: 24px;
+  font-family: "DejaVu Sans";
+  padding: 15px 15px;
+}
+
+.calendar-block-yea-d2 {
+  font-size: 35px;
+  font-family: "DejaVu Sans";
+  padding-left: 15px;
+}
+
+.calendar-block-yea-d3 {
+  padding-left: 15px;
+  font-size: 15px;
+  color: #8d99a3;
+  font-weight: 500;
+  font-family: "Poppins";
 }
